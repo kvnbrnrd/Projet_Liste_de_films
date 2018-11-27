@@ -2,8 +2,9 @@
 
 //Le modèle contient toutes les fonctions d'appel à la base de données.
 
+include('info.php');
 
-$dbh = new PDO('mysql:host=localhost;dbname=films', 'root', 'L0Z8E9kF');
+$dbh = new PDO('mysql:host='. $host .';dbname='. $dbname, $user, $pass);
 
 function getAllMovies() {
     global $dbh;
