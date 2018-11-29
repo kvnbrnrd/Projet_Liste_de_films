@@ -7,12 +7,6 @@
     <title>Annuaire de films - <?=$page?></title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-
-    <h1><?=$page?></h1>
-
-    <h2><?=$movie['titre']?></h2>
-    
-    
+<body> 
 </body>
 </html>
