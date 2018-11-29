@@ -1,3 +1,8 @@
 body {
     background: lightgrey;
 }
+
+.formcont{
+    border: 2px solid black;
+    padding: 1% 0;
+}
