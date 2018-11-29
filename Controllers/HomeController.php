@@ -16,12 +16,12 @@ $actor_name = getMoviesByActor('Norton');
 // }
 
 //Le tableau retourné a en clé la table, et en valeur, les colonnes de la table.
-foreach ($actor_name as $key => $value) {
-    $key['acteurs'].$value['nom'];
-    $key['films'].$value['titre'];
-}
-foreach ($actor_name as $key => $actor) {
-	$actor['nom'];
-}
-//inclure la vue
-include('Views/HomeView.php');
+	foreach ($actor_name as $key => $value) {
+	    $key['acteurs'].$value['nom'];
+	    $key['films'].$value['titre'];
+	}
+	foreach ($actor_name as $key => $actor) {
+		$actor['nom'];
+	}
+	//inclure la vue
+	include('Views/HomeView.php');

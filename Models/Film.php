@@ -23,7 +23,6 @@ function getOneMovie($id) {
     return $movies->fetch();
 }
 
-
 //ecrire getMoviesbyGenres, getMoviesByRealisateurs, getMoviesByTitre
 function getMoviesByActor($actor_name) {
     global $dbh;
