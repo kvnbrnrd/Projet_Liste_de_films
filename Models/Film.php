@@ -7,7 +7,6 @@ include('info.php');
 $dbh = new PDO('mysql:host='. $host .';dbname='. $dbname, $user, $pass);
 
 
-
 //Ecrire la fonction getAllActors, getAllGenres, getAllRealisateurs
 
 // Ici, toutes les fonctions GetOne, pour permettre au formulaire de prendre un seul résultat
@@ -137,5 +136,3 @@ function getMoviesByGenre($id_genre) {
 
 
 //     return $->fetchAll();
-
-

@@ -5,7 +5,6 @@ include('Models/Film.php');
 
 //Récupérer les données (ici, tous les films car on est sur la home)
 
-
 // $movies = getAllMovies();
 if (isset($_GET['whichactor'])){
 	$actor_name = getMoviesByActor($_GET['whichactor']);
@@ -30,4 +29,3 @@ if (isset ($_GET['whichmovie'])){
 
 	//inclure la vue
 	include('Views/HomeView.php');
-
