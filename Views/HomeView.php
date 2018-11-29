@@ -26,11 +26,9 @@
                     <option value="<?=$key['acteurs'].$value['id_acteur']?>"><?=$key['acteurs'].$value['prenom']?> <?=$key['acteurs'].$value['nom']?></option>
                 <?php endforeach; ?>
             </select>
-            <input type="submit" value="Recherche">
+            <input type="submit" value="Recherche par acteur">
         </form>
     </div>
-
-
 
     <ul>
         <!-- Comme la vue est incluse depuis le controller, on a accès à la variables $movies du controller : on fait une boucle pour afficher le titre de chaque film -->
@@ -38,8 +36,6 @@
            <li><?=$key['acteurs'].$value['nom']?> : <?=$key['films'].$value['titre']?></li><br>
         <?php endforeach; ?>
     </ul>
-
-
 
 <!-- JQuery -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

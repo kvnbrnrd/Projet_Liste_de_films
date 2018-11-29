@@ -73,9 +73,8 @@ function getAllActors() {
 function getAllGenres() {
     global $dbh;
 
-    $genres = $dbh->prepare('SELECT * from genres');
+    $genres = $dbh->prepare('SELECT * FROM genres');
     $genres->execute([]);
-
 
     return $genres->fetchAll();
 }
@@ -83,9 +82,8 @@ function getAllGenres() {
 function getAllRealisateurs() {
     global $dbh;
 
-    $realisateurs = $dbh->prepare('SELECT');
+    $realisateurs = $dbh->prepare('SELECT * FROM realisateurs');
     $realisateurs->execute([]);
-
 
     return $realisateurs->fetchAll();
 }

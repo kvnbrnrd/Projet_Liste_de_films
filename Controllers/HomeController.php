@@ -8,7 +8,10 @@ include('Models/Film.php');
 
 // $movies = getAllMovies();
 $actor_name = getMoviesByActor($_GET['whichactor']);
+
+//GET ALL
 $all_actors = getAllActors();
+$all_realisateurs = getAllRealisateurs();
 
 
 //traiter les données
