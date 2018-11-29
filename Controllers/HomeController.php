@@ -5,7 +5,6 @@ include('Models/Film.php');
 
 //Récupérer les données (ici, tous les films car on est sur la home)
 
-
 // $movies = getAllMovies();
 if (isset($_GET['whichactor'])){
 	$actor_name = getMoviesByActor($_GET['whichactor']);
@@ -21,10 +20,12 @@ if (isset ($_GET['whichmovie'])){
 // }
 
 //Le tableau retourné a en clé la table, et en valeur, les colonnes de la table.
+
 	// foreach ($actor_name as $key => $value) {
 	//     $key['acteurs'].$value['nom'];
 	//     $key['films'].$value['titre'];
 	// }
 	
+
 	//inclure la vue
 	include('Views/HomeView.php');

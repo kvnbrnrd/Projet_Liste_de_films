@@ -3,6 +3,7 @@
 //Le modèle contient toutes les fonctions d'appel à la base de données.
 include('info.php');
 
+
 $dbh = new PDO('mysql:host='. $host .';dbname='. $dbname, $user, $pass);
 
 
@@ -53,6 +54,7 @@ function getOneRealisateur($id_realisateur) {
 // Fin fonctions GetOne
 
 // Ici, toutes les fonctions GetAll, pour permettre au formulaire d'afficher la liste de résultats
+
 function getAllMovies() {
     global $dbh;
 
@@ -134,5 +136,3 @@ function getMoviesByGenre($id_genre) {
 
 
 //     return $->fetchAll();
-
-
