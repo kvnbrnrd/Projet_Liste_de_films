@@ -25,6 +25,7 @@
       </header>
     </div>
 
+<<<<<<< HEAD
         <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
             <div class="container">
                 <div class="col-md-6 px-0">
@@ -52,5 +53,10 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.15/js/mdb.min.js"></script>
+=======
+    <h2><?=$movie['titre']?></h2>
+    
+    
+>>>>>>> 4bf0dac9fbac4849960e5f615fb26f4d0fa8f7a0
 </body>
 </html>

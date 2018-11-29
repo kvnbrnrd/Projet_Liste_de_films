@@ -3,6 +3,7 @@
 //Le modèle contient toutes les fonctions d'appel à la base de données.
 include('info.php');
 
+
 $dbh = new PDO('mysql:host='. $host .';dbname='. $dbname, $user, $pass);
 
 
@@ -53,6 +54,7 @@ function getOneRealisateur($id_realisateur) {
 // Fin fonctions GetOne
 
 // Ici, toutes les fonctions GetAll, pour permettre au formulaire d'afficher la liste de résultats
+
 function getAllMovies() {
     global $dbh;
 
@@ -65,7 +67,7 @@ function getAllMovies() {
 function getAllActors() {
     global $dbh;
 
-    $all_actors = $dbh->prepare('SELECT * FROM actors');
+    $all_actors = $dbh->prepare('SELECT * FROM acteurs');
     $all_actors->execute([]);
 
 
@@ -109,7 +111,11 @@ function getMoviesByActor($id_actor) {
 function getMoviesByGenre($id_genre) {
     global $dbh;
 
+<<<<<<< HEAD
     $movies_by_genre = $dbh->prepare('SELECT films.titre, genres.genre FROM genres, films, genres_films WHERE genres.id_genre = ? AND genres_films.id_genre = genres.id_genre AND films.id_film = genres_films.id_film');
+=======
+    $movies_by_genre = $dbh->prepare('SELECT films.titre , genres.genre FROM genres, films, genres_films WHERE genre.id_genre = ? AND genres_films.id_genre = genre.id_genre AND films.id_film = genres_films.id_film');
+>>>>>>> 4bf0dac9fbac4849960e5f615fb26f4d0fa8f7a0
     $movies_by_genre->execute([$id_genre]);
 
 
@@ -133,7 +139,11 @@ function getMoviesByGenre($id_genre) {
 //     $->execute([$]);
 
 
+<<<<<<< HEAD
 //     return $->fetchAll();
 // }
 
 // Fin fonctions GetTrucByTruc
+=======
+//     return $->fetchAll();
+>>>>>>> 4bf0dac9fbac4849960e5f615fb26f4d0fa8f7a0
