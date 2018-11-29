@@ -3,7 +3,7 @@
 //Le modèle contient toutes les fonctions d'appel à la base de données.
 include('info.php');
 
-$dbh = new PDO('mysql:host='. $host .';dbname=projetmerise'. $dbname, $user, $pass);
+$dbh = new PDO('mysql:localhost='. $host .';dbname='. $dbname, $user, $pass);
 
 
 function getAllMovies() {

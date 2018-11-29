@@ -21,7 +21,7 @@ foreach ($actorname as $key => $value) {
     $key['films'].$value['titre'];
 }
 foreach ($actorname as $key => $actor) {
-	$actor['name'];
+	$actor['nom'];
 }
 //inclure la vue
 include('Views/HomeView.php');
