@@ -7,10 +7,14 @@ include('Models/Film.php');
 
 
 // $movies = getAllMovies();
-$actor_name = getMoviesByActor($_GET['whichactor']);
+if (isset($_GET['whichactor'])){
+	$actor_name = getMoviesByActor($_GET['whichactor']);
+}
+
 $all_actors = getAllActors();
-
-
+if (isset ($_GET['whichmovie'])){
+	$one_movie = getOneMovie($_GET['whichmovie']);
+}
 //traiter les données
 // foreach ($movies as $key => $movie) {
 //     $movie['realisateur'] = ucfirst($movie['realisateur']); //Mets une majuscule au nom du réalisateur

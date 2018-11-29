@@ -21,9 +21,9 @@
     <div class="container formcont">
         <form id="formbyactor" action="" method="get">
             <select name="whichactor" id="selectactor">
-                selec
+                
                 <?php foreach($all_actors as $key=>$value) : ?>
-                    <option value="<?=$key['acteurs'].$value['id_acteur']?>"><?=$key['acteurs'].$value['prenom']?> <?=$key['acteurs'].$value['nom']?></option>
+                   <option value="<?=$key['acteurs'].$value['id_acteur']?>"><?=$key['acteurs'].$value['prenom']?> <?=$key['acteurs'].$value['nom']?></option>
                 <?php endforeach; ?>
             </select>
             <input type="submit" value="Recherche">
@@ -34,9 +34,10 @@
 
     <ul>
         <!-- Comme la vue est incluse depuis le controller, on a accès à la variables $movies du controller : on fait une boucle pour afficher le titre de chaque film -->
-        <?php foreach ($actor_name as $key => $value) : ?>
+        <?php if(isset($actor_name)){
+            foreach ($actor_name as $key => $value) : ?>
            <li><?=$key['acteurs'].$value['nom']?> : <?=$key['films'].$value['titre']?></li><br>
-        <?php endforeach; ?>
+        <?php endforeach; } ?>
     </ul>
 
 

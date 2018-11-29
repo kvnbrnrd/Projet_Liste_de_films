@@ -12,43 +12,45 @@ $dbh = new PDO('mysql:host='. $host .';dbname='. $dbname, $user, $pass);
 
 // Ici, toutes les fonctions GetOne, pour permettre au formulaire de prendre un seul résultat
 
-function getOneMovie($id) {
+function getOneMovie($id_movie) {
     global $dbh;
 
-    $movies = $dbh->query('SELECT * FROM films WHERE id_film='.$id.';');
+    $one_movie = $dbh->prepare('SELECT * FROM films WHERE id_film=?;');
+    $one_movie->execute([$id_movie]);
 
-    return $movies->fetch();  
+
+    return $one_movie->fetchAll();
 }
 
-// function getOneActor($) {
-//     global $dbh;
+function getOneActor($id_actor) {
+    global $dbh;
 
-//     $ = $dbh->prepare('SELECT');
-//     $->execute([$]);
-
-
-//     return $->fetchAll();
-// }
-
-// function getOneGenre($) {
-//     global $dbh;
-
-//     $ = $dbh->prepare('SELECT');
-//     $->execute([$]);
+    $one_actor = $dbh->prepare('SELECT * FROM actors WHERE id_acteur=?;');
+    $one_actor->execute([$id_actor]);
 
 
-//     return $->fetchAll();
-// }
+    return $one_actor->fetchAll();
+}
 
-// function getOneRealisateur($) {
-//     global $dbh;
+function getOneGenre($id_genre) {
+    global $dbh;
 
-//     $ = $dbh->prepare('SELECT');
-//     $->execute([$]);
+    $one_genre = $dbh->prepare('SELECT * FROM genres WHERE id_genre=?;');
+    $one_genre->execute([$id_genre]);
 
 
-//     return $->fetchAll();
-// }
+    return $one_genre->fetchAll();
+}
+
+function getOneRealisateur($id_realisateur) {
+    global $dbh;
+
+    $one_realisateur = $dbh->prepare('SELECT * FROM realisateurs WHERE id_realisateur=?;');
+    $one_realisateur->execute([$id_realisateur]);
+
+
+    return $one_realisateur->fetchAll();
+}
 
 // Fin fonctions GetOne
 
@@ -57,60 +59,71 @@ function getOneMovie($id) {
 function getAllMovies() {
     global $dbh;
 
-    $movies = $dbh->prepare('SELECT * FROM films');
-    $movies->execute([]);
+    $all_movies = $dbh->prepare('SELECT * FROM films');
+    $all_movies->execute([]);
 
-    return $movies->fetchAll();
+    return $all_movies->fetchAll();
 }
 
 function getAllActors() {
     global $dbh;
 
-    $actors = $dbh->prepare('SELECT * FROM acteurs');
-    $actors->execute([]);
+    $all_actors = $dbh->prepare('SELECT * FROM acteurs');
+    $all_actors->execute([]);
 
 
-    return $actors->fetchAll();
+    return $all_actors->fetchAll();
 }
 
 function getAllGenres() {
     global $dbh;
 
-    $genres = $dbh->prepare('SELECT * from genres');
-    $genres->execute([]);
+    $all_genres = $dbh->prepare('SELECT * FROM genres');
+    $all_genres->execute([]);
 
 
-    return $genres->fetchAll();
+    return $all_genres->fetchAll();
 }
 
 function getAllRealisateurs() {
     global $dbh;
 
-    $realisateurs = $dbh->prepare('SELECT');
-    $realisateurs->execute([]);
+    $all_realisateurs = $dbh->prepare('SELECT * FROM realisateurs');
+    $all_realisateurs->execute([]);
 
 
-    return $realisateurs->fetchAll();
+    return $all_realisateurs->fetchAll();
 }
 
 // Fin fonctions GetAll
 
 //ecrire getMoviesbyGenres, getMoviesByRealisateurs, getMoviesByTitre
 // Ici, toutes les fonctions GetTrucByTruc, pour lier les résultats de plusieurs tables entre eux
-function getMoviesByActor($actor_id) {
+function getMoviesByActor($id_actor) {
     global $dbh;
 
     $movies_by_actor = $dbh->prepare('SELECT acteurs.nom, acteurs.prenom, films.titre FROM acteurs, films, films_acteurs WHERE acteurs.id_acteur = ? AND films_acteurs.id_acteur = acteurs.id_acteur AND films.id_film = films_acteurs.id_film');
-    $movies_by_actor->execute([$actor_id]);
+    $movies_by_actor->execute([$id_actor]);
+
 
     return $movies_by_actor->fetchAll();
 }
 
-// function getMoviesByGenre($) {
+function getMoviesByGenre($id_genre) {
+    global $dbh;
+
+    $movies_by_genre = $dbh->prepare('SELECT films.titre , genres.genre FROM genres, films, genres_films WHERE genre.id_genre = ? AND genres_films.id_genre = genre.id_genre AND films.id_film = genres_films.id_film');
+    $movies_by_genre->execute([$id_genre]);
+
+
+    return $movies_by_genre->fetchAll();
+}
+
+// function getTrucByTruc($) {
 //     global $dbh;
 
-//     $movies_by_genre = $dbh->prepare('SELECT');
-//     $movies_by_genre->execute([$genre_name]);
+//     $ = $dbh->prepare('SELECT');
+//     $->execute([$]);
 
 
 //     return $->fetchAll();
@@ -124,16 +137,5 @@ function getMoviesByActor($actor_id) {
 
 
 //     return $->fetchAll();
-// }
-
-// function getTrucByTruc($) {
-//     global $dbh;
-
-//     $ = $dbh->prepare('SELECT');
-//     $->execute([$]);
 
 
-//     return $->fetchAll();
-// }
-
-// Fin fonctions GetTrucByTruc

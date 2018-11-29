@@ -13,5 +13,6 @@
 
     <h2><?=$movie['titre']?></h2>
     
+    
 </body>
 </html>
