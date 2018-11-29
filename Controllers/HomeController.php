@@ -7,7 +7,8 @@ include('Models/Film.php');
 
 
 // $movies = getAllMovies();
-$actor_name = getMoviesByActor('Norton');
+$actor_name = getMoviesByActor($_GET['whichactor']);
+$all_actors = getAllActors();
 
 
 //traiter les données
@@ -16,12 +17,10 @@ $actor_name = getMoviesByActor('Norton');
 // }
 
 //Le tableau retourné a en clé la table, et en valeur, les colonnes de la table.
-	foreach ($actor_name as $key => $value) {
-	    $key['acteurs'].$value['nom'];
-	    $key['films'].$value['titre'];
-	}
-	foreach ($actor_name as $key => $actor) {
-		$actor['nom'];
-	}
+	// foreach ($actor_name as $key => $value) {
+	//     $key['acteurs'].$value['nom'];
+	//     $key['films'].$value['titre'];
+	// }
+	
 	//inclure la vue
 	include('Views/HomeView.php');
