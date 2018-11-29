@@ -5,7 +5,6 @@ include('info.php');
 
 $dbh = new PDO('mysql:host='. $host .';dbname='. $dbname, $user, $pass);
 
-
 function getAllMovies() {
     global $dbh;
 
@@ -29,7 +28,6 @@ function getMoviesByActor($actorname) {
 
     $movies = $dbh->prepare('SELECT acteurs.nom, acteurs.prenom, films.titre FROM acteurs, films, films_acteurs WHERE acteurs.nom = ? AND films_acteurs.id_acteur = acteurs.id_acteur AND films.id_film = films_acteurs.id_film');
     $movies->execute([$actorname]);
-
 
     return $movies->fetchAll();
 }
