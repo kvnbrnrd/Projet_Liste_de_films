@@ -23,11 +23,22 @@ function getOneMovie($id) {
 }
 
 //ecrire getMoviesbyGenres, getMoviesByRealisateurs, getMoviesByTitre
-function getMoviesByActor($actorname) {
+function getMoviesByActor($actor_name) {
     global $dbh;
 
-    $movies = $dbh->prepare('SELECT acteurs.nom, acteurs.prenom, films.titre FROM acteurs, films, films_acteurs WHERE acteurs.nom = ? AND films_acteurs.id_acteur = acteurs.id_acteur AND films.id_film = films_acteurs.id_film');
-    $movies->execute([$actorname]);
+    $movies_by_actor = $dbh->prepare('SELECT acteurs.nom, acteurs.prenom, films.titre FROM acteurs, films, films_acteurs WHERE acteurs.nom = ? AND films_acteurs.id_acteur = acteurs.id_acteur AND films.id_film = films_acteurs.id_film');
+    $movies_by_actor->execute([$actor_name]);
 
-    return $movies->fetchAll();
+
+    return $movies_by_actor->fetchAll();
+}
+
+function getMoviesbyGenre($genre_name) {
+    global $dbh;
+
+    $movies_by_genre = $dbh->prepare('SELECT acteurs.nom, acteurs.prenom, films.titre FROM acteurs, films, films_acteurs WHERE acteurs.nom = ? AND films_acteurs.id_acteur = acteurs.id_acteur AND films.id_film = films_acteurs.id_film');
+    $movies_by_genre->execute([$actor_name]);
+
+
+    return $movies_by_genre->fetchAll();
 }
