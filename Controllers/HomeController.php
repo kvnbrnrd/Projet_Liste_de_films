@@ -9,7 +9,7 @@ include('Models/Film.php');
 // $movies = getAllMovies();
 $actor_name = getMoviesByActor($_GET['whichactor']);
 $all_actors = getAllActors();
-
+$one_movie = getOneMovie($_GET['whichmovie']);
 
 //traiter les données
 // foreach ($movies as $key => $movie) {
