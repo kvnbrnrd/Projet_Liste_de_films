@@ -5,6 +5,7 @@ include('info.php');
 
 $dbh = new PDO('mysql:host='. $host .';dbname='. $dbname, $user, $pass);
 
+
 function getAllMovies() {
     global $dbh;
 
@@ -12,6 +13,7 @@ function getAllMovies() {
 
     return $movies->fetchAll();
 }
+//Ecrire la fonction getAllActors, getAllGenres, getAllRealisateurs
 
 function getOneMovie($id) {
     global $dbh;
@@ -21,14 +23,7 @@ function getOneMovie($id) {
     return $movies->fetch();
 }
 
-// function getMoviesByGenre($gender_id) {
-//     global $dbh;
-
-//     $movies = $dbh->query('SELECT * FROM films WHERE id_film = "3";');
-
-//     return $movies->fetchAll();
-// }
-
+//ecrire getMoviesbyGenres, getMoviesByRealisateurs, getMoviesByTitre
 function getMoviesByActor($actorname) {
     global $dbh;
 

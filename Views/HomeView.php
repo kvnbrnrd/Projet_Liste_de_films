@@ -17,6 +17,6 @@
            <li><?=$key['acteurs'].$value['nom']?> : <?=$key['films'].$value['titre']?></li><br>
         <?php endforeach; ?>
     </ul>
-    
+
 </body>
 </html>
