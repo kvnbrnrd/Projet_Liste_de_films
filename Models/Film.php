@@ -102,7 +102,7 @@ function getMoviesByActor($id_actor) {
     global $dbh;
 
     $movies_by_actor = $dbh->prepare('SELECT acteurs.nom, acteurs.prenom, films.titre FROM acteurs, films, films_acteurs WHERE acteurs.id_acteur = ? AND films_acteurs.id_acteur = acteurs.id_acteur AND films.id_film = films_acteurs.id_film');
-    $movies_by_actor->execute([$id_actor]);
+    $m ovies_by_actor->execute([$id_actor]);
 
 
     return $movies_by_actor->fetchAll();
@@ -111,7 +111,7 @@ function getMoviesByActor($id_actor) {
 function getMoviesByGenre($id_genre) {
     global $dbh;
 
-    $movies_by_genre = $dbh->prepare('SELECT films.titre, genres.genre FROM genres, films, genres_films WHERE genres.id_genre = ? AND genres_films.id_genre = genres.id_genre AND films.id_film = genres_films.id_film');
+    $movies_by_genre = $dbh->prepare('SELECT films.titre , genres.genre FROM genres, films, genres_films WHERE genre.id_genre = ? AND genres_films.id_genre = genre.id_genre AND films.id_film = genres_films.id_film');
     $movies_by_genre->execute([$id_genre]);
 
 
@@ -136,6 +136,3 @@ function getMoviesByGenre($id_genre) {
 
 
 //     return $->fetchAll();
-// }
-
-// Fin fonctions GetTrucByTruc
