@@ -19,7 +19,9 @@
       <header class="blog-header py-3">
         <div class="row flex-nowrap justify-content-between align-items-center">
           <div class="col-4 text-center">
-            <a class="blog-header-logo text-dark" href="#"><h1><?=$this_movie?></h1></a>
+            <a class="blog-header-logo text-dark" href="#"><h1><?php if(isset($this_titre)){
+                echo $this_titre;
+                }?></h1></a>
           </div>
         </div>
       </header>
@@ -27,19 +29,31 @@
         <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
             <div class="container">
                 <div class="col-md-6 px-0">
-                    <img src="<?$this_movie['url_image']?>" alt="">
+                    <img src="<?php if (isset($this_image)){
+                        echo $this_image;
+                    }?>" alt="">
 
-                    <h3>Date de sortie :</h3><span><?=$this_date?></span>
-                    <h3>De :</h3><span><?=$this_realisateur?></span>
-                    <h3>Avec :</h3><span><?=$this_actor?></span>
-                    <h3>Genres : </h3><span><?=$this_genre?></span>
+                    <h3>Date de sortie :</h3><span><?php if(isset($this_date)){
+                        echo $this_date;
+                    }?></span>
+                    <h3>De :</h3><span><?php if(isset($this_real_nom)){
+                        echo $this_real_nom;
+                    }?></span>
+                    <h3>Avec :</h3><span><?php if(isset($this_actor)){
+                        echo $this_actor;
+                    }?></span>
+                    <h3>Genres : </h3><span><?php if(isset($this_genre)){
+                        echo $this_genre;
+                    }?></span>
                 </div>
             </div>
         </div>
 
       <div class="container">
         <h2>SYNOPSIS</h2>
-            <p><?=$this_description?></p>
+            <p><?php if(isset($this_description)){
+                        echo $this_description;
+                    }?></p>
       </div>
 
 
@@ -51,8 +65,5 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.15/js/mdb.min.js"></script>
-
-    <h2><?=$movie['titre']?></h2>
-
 </body>
 </html>

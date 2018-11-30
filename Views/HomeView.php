@@ -17,24 +17,154 @@
 <body>
 
     <h1><?=$page?></h1>
+
+
+    <!-- FORMULAIRE PAR TITRE -->
     <div class="container formcont">
-        <form id="formbyactor" action="" method="get">
+        <h1 id="titrecardbytitre">Recherche par titre</h1>
+        <form id="formbytitre" action="" method="GET">
+            <select name="whichtitre" id="selecttitre">
+                <?php foreach($all_movies as $key=>$value) : ?>
+                   <option value="<?=$key['films'].$value['id_film']?>"><?=$key['films'].$value['titre']?></option>
+                <?php endforeach; ?>
+            </select>
+            <input type="submit" value="Recherche">
+        </form>
+    </div>
+    
+
+
+    <!-- FORMULAIRE PAR ACTEUR -->
+    <div class="container formcont">
+        <h1 id="titrecardbyactor">Recherche par acteur</h1>
+        <form id="formbyactor" action="" method="GET">
             <select name="whichactor" id="selectactor">
                 <?php foreach($all_actors as $key=>$value) : ?>
                    <option value="<?=$key['acteurs'].$value['id_acteur']?>"><?=$key['acteurs'].$value['prenom']?> <?=$key['acteurs'].$value['nom']?></option>
                 <?php endforeach; ?>
             </select>
-            <input type="submit" value="Recherche par acteur">
+            <input type="submit" value="Recherche">
         </form>
     </div>
-<!-- $_GET['whichactor'] -->
-    <ul>
-        <!-- Comme la vue est incluse depuis le controller, on a accès à la variables $movies du controller : on fait une boucle pour afficher le titre de chaque film -->
+    
+
+    <!-- FORMULAIRE PAR GENRE -->
+    <div class="container formcont">
+        <h1 id="titrecardbygenre">Recherche par genre</h1>
+        <form id="formbygenre" action="" method="GET">
+            <select name="whichgenre" id="selectgenre">
+                <?php foreach($all_genres as $key=>$value) : ?>
+                   <option value="<?=$key['genres'].$value['id_genre']?>"><?=$key['genres'].$value['genre']?></option>
+                <?php endforeach; ?>
+            </select>
+            <input type="submit" value="Recherche">
+        </form>
+    </div>
+    
+
+    <!-- FORMULAIRE PAR REALISATEURS -->
+    <div class="container formcont">
+        <h1 id="titrecardbyrealisateur">Recherche par réalisateur</h1>
+        <form id="formbyrealisateur" action="" method="GET">
+            <select name="whichrealisateur" id="selectrealisateur">
+                <?php foreach($all_realisateurs as $key=>$value) : ?>
+                   <option value="<?=$key['realisateurs'].$value['id_realisateur']?>"><?=$key['realisateurs'].$value['prenom']?> <?=$key['realisateurs'].$value['nom']?></option>
+                <?php endforeach; ?>
+            </select>
+            <input type="submit" value="Recherche">
+        </form>
+    </div>
+    
+
+
+<div class="container">
+
+
+    <!-- Card deck -->
+    <div class="card-deck">
+
+        <!-- isset : vérifie si $movie_name existe, et si oui, fait une boucle avec le code de la carte bootstrap -->
+    <?php if(isset($movie_name)){
+        foreach ($movie_name as $key => $value) : ?>
+            <!-- Card -->
+            <div class="card mb-4">
+
+                <!--Image de la carte-->
+                <div class="view overlay">
+                    <img class="card-img-top poster_film" src="<?=$key['films'].$value['url_img']?>" alt="poster du film">
+                    <!-- ajouter l'url du film dans le href du a ; <a href="index.php?page=Film&id_film=php $key['films'].$value['id_film']?>"></a> -->
+                    <a href="index.php?page=Film&id_film=<?=$key['films'].$value['id_film']?>">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+
+                <!--Contenu de la carte-->
+                <div class="card-body">
+                <!--Title-->
+                <h4 class="card-title"><?=$key['films'].$value['titre']?></h4>
+                <!--Text-->
+                <div class="row">
+                <p class="card-text col-6">Réalisateur : <?=$key['realisateurs'].$value['prenom']?> <?=$key['realisateurs'].$value['nom']?></p>
+                <p class="card-text col-6">Année de sortie : <?=$key['films'].$value['annee_sortie']?></p>
+                </div>
+                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                <a type="button" class="btn btn-light-blue btn-md" href="index.php?page=Film&id_film=<?=$key['films'].$value['id_film']?>">Voir la fiche</a>
+                </div>
+
+            </div>
+            <?php endforeach; 
+                    foreach($movie_name as $key => $value){
+                        echo $key['genres'].$value['genre'];
+                    }
+            } 
+            ?>
+    </div>
+</div>
+
+
+        
+    <!-- AFFICHER RESULTATS PAR TITRE-->
+    <?php if(isset($movie_name)){
+                foreach ($movie_name as $key => $value) : ?>
+            <li><?=$key['films'].$value['titre']?> <?=$key['films'].$value['annee_sortie']?> <?=$key['realisateurs'].$value['prenom']?> <?=$key['realisateurs'].$value['nom']?></li><br>
+            <?php endforeach; 
+                foreach($movie_name as $key => $value){
+                    echo $key['genres'].$value['genre'];
+                }
+        } ?>
+        
+
+    <!-- AFFICHER RESULTATS PAR ACTEURS-->
         <?php if(isset($actor_name)){
             foreach ($actor_name as $key => $value) : ?>
            <li><?=$key['acteurs'].$value['nom']?> : <?=$key['films'].$value['titre']?></li><br>
         <?php endforeach; } ?>
-    </ul>
+
+    
+    <!-- AFFICHER RESULTATS PAR GENRE-->
+        <?php if(isset($genre_name) && !empty($genre_name)){
+            foreach ($genre_name as $key => $value) : ?>
+           <li><?=$key['genres'].$value['genre']?> : <?=$key['films'].$value['titre']?></li><br>
+        <?php endforeach; }
+        elseif(isset($genre_name)){
+            echo "Nous n'avons pas de films dans cette catégorie.";
+        } ?>
+    
+
+     <!-- AFFICHER RESULTATS PAR REALISATEURS-->
+     <?php if(isset($realisateur_name)){
+            foreach ($realisateur_name as $key => $value) : ?>
+           <li><?=$key['realisateurs'].$value['nom']?> : <?=$key['films'].$value['titre']?></li><br>
+        <?php endforeach; } ?>
+    
+
+
+
+
+
+
+
+
 
 <!-- JQuery -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

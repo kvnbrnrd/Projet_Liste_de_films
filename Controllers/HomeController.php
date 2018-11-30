@@ -3,29 +3,47 @@
 //le controlleur inclut le modèle
 include('Models/Film.php');
 
-//Récupérer les données (ici, tous les films car on est sur la home)
-
-// $movies = getAllMovies();
+//Fonction résultats du fomulaire
 if (isset($_GET['whichactor'])){
 	$actor_name = getMoviesByActor($_GET['whichactor']);
 }
 
-$all_actors = getAllActors();
-if (isset ($_GET['whichmovie'])){
-	$one_movie = getOneMovie($_GET['whichmovie']);
+if (isset($_GET['whichgenre'])){
+	$genre_name = getMoviesByGenre($_GET['whichgenre']);
 }
-//traiter les données
-// foreach ($movies as $key => $movie) {
-//     $movie['realisateur'] = ucfirst($movie['realisateur']); //Mets une majuscule au nom du réalisateur
-// }
 
-//Le tableau retourné a en clé la table, et en valeur, les colonnes de la table.
+if (isset($_GET['whichrealisateur'])){
+	$realisateur_name = getMoviesByRealisateur($_GET['whichrealisateur']);
+}
 
-	// foreach ($actor_name as $key => $value) {
-	//     $key['acteurs'].$value['nom'];
-	//     $key['films'].$value['titre'];
-	// }
-	
+if (isset($_GET['whichtitre'])){
+	$movie_name = getMoviesByTitre($_GET['whichtitre']);
+}
+
+
+
+//fonctions ALL pour les listes déroulantes
+$all_actors = getAllActors();
+if (isset ($_GET['whichactor'])){
+	$one_actor = getOneActor($_GET['whichactor']);
+}
+
+$all_genres = getAllGenres();
+if (isset ($_GET['whichgenre'])){
+	$one_genre = getOneGenre($_GET['whichgenre']);
+}
+
+$all_realisateurs = getAllRealisateurs();
+if (isset ($_GET['whichrealisateur'])){
+	$one_realisateur = getOneRealisateur($_GET['whichrealisateur']);
+}
+
+$all_movies = getAllMovies();
+if (isset ($_GET['whichtitre'])){
+	$one_movie = getOneMovie($_GET['whichtitre']);
+}
+
+
 
 	//inclure la vue
 	include('Views/HomeView.php');
