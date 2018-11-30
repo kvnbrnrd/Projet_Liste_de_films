@@ -31,7 +31,7 @@
             <input type="submit" value="Recherche">
         </form>
     </div>
-    <ul>
+    
 
 
     <!-- FORMULAIRE PAR ACTEUR -->
@@ -46,7 +46,7 @@
             <input type="submit" value="Recherche">
         </form>
     </div>
-    <ul>
+    
 
     <!-- FORMULAIRE PAR GENRE -->
     <div class="container formcont">
@@ -60,7 +60,7 @@
             <input type="submit" value="Recherche">
         </form>
     </div>
-    <ul>
+    
 
     <!-- FORMULAIRE PAR REALISATEURS -->
     <div class="container formcont">
@@ -122,7 +122,7 @@
 </div>
 
 
-        <ul>
+        
     <!-- AFFICHER RESULTATS PAR TITRE-->
     <?php if(isset($movie_name)){
                 foreach ($movie_name as $key => $value) : ?>
@@ -132,31 +132,31 @@
                     echo $key['genres'].$value['genre'];
                 }
         } ?>
-        </ul>
+        
 
     <!-- AFFICHER RESULTATS PAR ACTEURS-->
         <?php if(isset($actor_name)){
             foreach ($actor_name as $key => $value) : ?>
            <li><?=$key['acteurs'].$value['nom']?> : <?=$key['films'].$value['titre']?></li><br>
         <?php endforeach; } ?>
-    </ul>
 
+    
     <!-- AFFICHER RESULTATS PAR GENRE-->
         <?php if(isset($genre_name) && !empty($genre_name)){
             foreach ($genre_name as $key => $value) : ?>
            <li><?=$key['genres'].$value['genre']?> : <?=$key['films'].$value['titre']?></li><br>
         <?php endforeach; }
-        elseif(isset($genre_name) && empty($genre_name)){
+        elseif(isset($genre_name)){
             echo "Nous n'avons pas de films dans cette catégorie.";
         } ?>
-    </ul>
+    
 
      <!-- AFFICHER RESULTATS PAR REALISATEURS-->
      <?php if(isset($realisateur_name)){
             foreach ($realisateur_name as $key => $value) : ?>
            <li><?=$key['realisateurs'].$value['nom']?> : <?=$key['films'].$value['titre']?></li><br>
         <?php endforeach; } ?>
-    </ul>
+    
 
 
 

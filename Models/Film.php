@@ -111,7 +111,7 @@ function getMoviesByActor($id_actor) {
 function getMoviesByGenre($id_genre) {
     global $dbh;
 
-    $movies_by_genre = $dbh->prepare('SELECT films.titre , genres.genre FROM genres, films, genres_films WHERE genre.id_genre = ? AND genres_films.id_genre = genre.id_genre AND films.id_film = genres_films.id_film');
+    $movies_by_genre = $dbh->prepare('SELECT films.titre , genres.genre FROM genres, films, genres_films WHERE genres.id_genre = ? AND genres_films.id_genre = genres.id_genre AND films.id_film = genres_films.id_film');
     $movies_by_genre->execute([$id_genre]);
     return $movies_by_genre->fetchAll();
 }
