@@ -31,7 +31,7 @@
             <input type="submit" value="Recherche">
         </form>
     </div>
-    <ul>
+    
 
 
     <!-- FORMULAIRE PAR ACTEUR -->
@@ -46,7 +46,7 @@
             <input type="submit" value="Recherche">
         </form>
     </div>
-    <ul>
+    
 
     <!-- FORMULAIRE PAR GENRE -->
     <div class="container formcont">
@@ -60,7 +60,7 @@
             <input type="submit" value="Recherche">
         </form>
     </div>
-    <ul>
+    
 
     <!-- FORMULAIRE PAR REALISATEURS -->
     <div class="container formcont">
@@ -74,12 +74,55 @@
             <input type="submit" value="Recherche">
         </form>
     </div>
-    <ul>
+    
 
 
+<div class="container">
 
 
+    <!-- Card deck -->
+    <div class="card-deck">
 
+        <!-- isset : vérifie si $movie_name existe, et si oui, fait une boucle avec le code de la carte bootstrap -->
+    <?php if(isset($movie_name)){
+        foreach ($movie_name as $key => $value) : ?>
+            <!-- Card -->
+            <div class="card mb-4">
+
+                <!--Image de la carte-->
+                <div class="view overlay">
+                    <img class="card-img-top poster_film" src="<?=$key['films'].$value['url_img']?>" alt="poster du film">
+                    <!-- ajouter l'url du film dans le href du a ; <a href="index.php?page=Film&id_film=php $key['films'].$value['id_film']?>"></a> -->
+                    <a href="index.php?page=Film&id_film=<?=$key['films'].$value['id_film']?>">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+
+                <!--Contenu de la carte-->
+                <div class="card-body">
+                <!--Title-->
+                <h4 class="card-title"><?=$key['films'].$value['titre']?></h4>
+                <!--Text-->
+                <div class="row">
+                <p class="card-text col-6">Réalisateur : <?=$key['realisateurs'].$value['prenom']?> <?=$key['realisateurs'].$value['nom']?></p>
+                <p class="card-text col-6">Année de sortie : <?=$key['films'].$value['annee_sortie']?></p>
+                </div>
+                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                <a type="button" class="btn btn-light-blue btn-md" href="index.php?page=Film&id_film=<?=$key['films'].$value['id_film']?>">Voir la fiche</a>
+                </div>
+
+            </div>
+            <?php endforeach; 
+                    foreach($movie_name as $key => $value){
+                        echo $key['genres'].$value['genre'];
+                    }
+            } 
+            ?>
+    </div>
+</div>
+
+
+        
     <!-- AFFICHER RESULTATS PAR TITRE-->
     <?php if(isset($movie_name)){
                 foreach ($movie_name as $key => $value) : ?>
@@ -89,31 +132,31 @@
                     echo $key['genres'].$value['genre'];
                 }
         } ?>
-        </ul>
+        
 
     <!-- AFFICHER RESULTATS PAR ACTEURS-->
         <?php if(isset($actor_name)){
             foreach ($actor_name as $key => $value) : ?>
            <li><?=$key['acteurs'].$value['nom']?> : <?=$key['films'].$value['titre']?></li><br>
         <?php endforeach; } ?>
-    </ul>
 
+    
     <!-- AFFICHER RESULTATS PAR GENRE-->
         <?php if(isset($genre_name) && !empty($genre_name)){
             foreach ($genre_name as $key => $value) : ?>
            <li><?=$key['genres'].$value['genre']?> : <?=$key['films'].$value['titre']?></li><br>
         <?php endforeach; }
-        elseif(isset($genre_name) && empty($genre_name)){
+        elseif(isset($genre_name)){
             echo "Nous n'avons pas de films dans cette catégorie.";
         } ?>
-    </ul>
+    
 
      <!-- AFFICHER RESULTATS PAR REALISATEURS-->
      <?php if(isset($realisateur_name)){
             foreach ($realisateur_name as $key => $value) : ?>
            <li><?=$key['realisateurs'].$value['nom']?> : <?=$key['films'].$value['titre']?></li><br>
         <?php endforeach; } ?>
-    </ul>
+    
 
 
 
