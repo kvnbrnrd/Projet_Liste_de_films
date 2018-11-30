@@ -6,3 +6,12 @@ body {
     border: 2px solid black;
     padding: 1% 0;
 }
+
+.mb-4{
+    min-width: 300px;
+    max-width: 20%;
+}
+
+/* *{
+    background-color: rgba(0,0,0,0.2)
+} */

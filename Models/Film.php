@@ -131,7 +131,7 @@ function getMoviesByRealisateur($id_realisateur) {
 function getMoviesByTitre($id_titre) {
     global $dbh;
 
-    $movies_by_titre = $dbh->prepare('SELECT films.titre, films.url_img, films.annee_sortie, realisateurs.prenom, realisateurs.nom, genres.genre  FROM films, genres,genres_films, realisateurs, films_realisateurs WHERE films.id_film = ? AND films.id_film = films_realisateurs.id_film AND realisateurs.id_realisateur = films_realisateurs.id_realisateur AND films.id_film = genres_films.id_film AND genres_films.id_genre = genres.id_genre ');
+    $movies_by_titre = $dbh->prepare('SELECT films.id_film, films.titre, films.url_img, films.annee_sortie, realisateurs.prenom, realisateurs.nom, genres.genre  FROM films, genres,genres_films, realisateurs, films_realisateurs WHERE films.id_film = ? AND films.id_film = films_realisateurs.id_film AND realisateurs.id_realisateur = films_realisateurs.id_realisateur AND films.id_film = genres_films.id_film AND genres_films.id_genre = genres.id_genre ');
     $movies_by_titre->execute([$id_titre]);
 
 
@@ -153,13 +153,9 @@ function getMoviesByTitre($id_titre) {
 
 //     $ = $dbh->prepare('SELECT');
 //     $->execute([$]);
-<<<<<<< HEAD
-//     return $->fetchAll();
-=======
 
 
 // Fin fonctions GetTrucByTruc
 
 //     return $->fetchAll();
 // }
->>>>>>> 3cca71ea3440662104cbfffd3df90bf14affe769
