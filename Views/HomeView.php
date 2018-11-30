@@ -20,61 +20,76 @@
 
 
     <!-- FORMULAIRE PAR TITRE -->
-    <div class="container formcont">
-        <h1 id="titrecardbytitre">Recherche par titre</h1>
+    <div class="row">
+          <div class="col-lg-3">
+    <div class="container first">
+        <h1 id="titrecardbytitre">titre</h1>
         <form id="formbytitre" action="" method="GET">
             <select name="whichtitre" id="selecttitre">
                 <?php foreach($all_movies as $key=>$value) : ?>
                    <option value="<?=$key['films'].$value['id_film']?>"><?=$key['films'].$value['titre']?></option>
                 <?php endforeach; ?>
             </select>
-            <input type="submit" value="Recherche">
+            <button class="btn blue-gradient">recherche</button>
+
         </form>
     </div>
+    </div><!-- /.col-lg-4 -->
+          
     
 
 
     <!-- FORMULAIRE PAR ACTEUR -->
-    <div class="container formcont">
-        <h1 id="titrecardbyactor">Recherche par acteur</h1>
+    <div class="col-lg-3">
+    <div class="container second">
+        <h1 id="titrecardbyactor">acteur</h1>
         <form id="formbyactor" action="" method="GET">
             <select name="whichactor" id="selectactor">
                 <?php foreach($all_actors as $key=>$value) : ?>
                    <option value="<?=$key['acteurs'].$value['id_acteur']?>"><?=$key['acteurs'].$value['prenom']?> <?=$key['acteurs'].$value['nom']?></option>
                 <?php endforeach; ?>
             </select>
-            <input type="submit" value="Recherche">
+            <button class="btn blue-gradient">recherche</button>
         </form>
     </div>
-    
+    </div><!-- /.col-lg-4 -->
+          
 
     <!-- FORMULAIRE PAR GENRE -->
-    <div class="container formcont">
-        <h1 id="titrecardbygenre">Recherche par genre</h1>
+    <div class="col-lg-3">
+    <div class="container third">
+        <h1 id="titrecardbygenre">genre</h1>
         <form id="formbygenre" action="" method="GET">
             <select name="whichgenre" id="selectgenre">
                 <?php foreach($all_genres as $key=>$value) : ?>
                    <option value="<?=$key['genres'].$value['id_genre']?>"><?=$key['genres'].$value['genre']?></option>
                 <?php endforeach; ?>
             </select>
-            <input type="submit" value="Recherche">
+            <button class="btn blue-gradient">recherche</button>
         </form>
     </div>
+    </div><!-- /.col-lg-4 -->
     
-
     <!-- FORMULAIRE PAR REALISATEURS -->
-    <div class="container formcont">
-        <h1 id="titrecardbyrealisateur">Recherche par réalisateur</h1>
+    
+    <div class="col-lg-3">
+    <div class="container last">
+        <h1 id="titrecardbyrealisateur">réalisateur</h1>
         <form id="formbyrealisateur" action="" method="GET">
             <select name="whichrealisateur" id="selectrealisateur">
                 <?php foreach($all_realisateurs as $key=>$value) : ?>
                    <option value="<?=$key['realisateurs'].$value['id_realisateur']?>"><?=$key['realisateurs'].$value['prenom']?> <?=$key['realisateurs'].$value['nom']?></option>
                 <?php endforeach; ?>
             </select>
-            <input type="submit" value="Recherche">
+            <button class="btn blue-gradient">recherche</button>
         </form>
     </div>
-    
+    </div>
+</div>
+</div>
+</div><!-- /.col-lg-4 -->
+
+   
 
 
 <div class="container">

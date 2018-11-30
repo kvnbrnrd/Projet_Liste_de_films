@@ -153,3 +153,4 @@ function getMoviesByTitre($id_titre) {
 
 //     $ = $dbh->prepare('SELECT');
 //     $->execute([$]);
+//     return $->fetchAll();
