@@ -4,7 +4,7 @@
 include('info.php');
 
 
-$dbh = new PDO('mysql:host='. $host .';dbname='. $dbname, $user, $pass);
+$dbh = new PDO('mysql:host='. $host .';dbname='. $dbname, $user, $pass); 
 
 
 //Ecrire la fonction getAllActors, getAllGenres, getAllRealisateurs
@@ -101,7 +101,7 @@ function getAllRealisateurs() {
 function getMoviesByActor($id_actor) {
     global $dbh;
 
-    $movies_by_actor = $dbh->prepare('SELECT acteurs.nom, acteurs.prenom, films.titre FROM acteurs, films, films_acteurs WHERE acteurs.id_acteur = ? AND films_acteurs.id_acteur = acteurs.id_acteur AND films.id_film = films_acteurs.id_film');
+    $movies_by_actor = $dbh->prepare('SELECT acteurs.prenom, acteurs.nom, films.titre FROM acteurs, films, films_acteurs WHERE acteurs.id_acteur = ? AND films_acteurs.id_acteur = acteurs.id_acteur AND films.id_film = films_acteurs.id_film');
     $movies_by_actor->execute([$id_actor]);
 
 
@@ -114,6 +114,28 @@ function getMoviesByGenre($id_genre) {
     $movies_by_genre = $dbh->prepare('SELECT films.titre , genres.genre FROM genres, films, genres_films WHERE genre.id_genre = ? AND genres_films.id_genre = genre.id_genre AND films.id_film = genres_films.id_film');
     $movies_by_genre->execute([$id_genre]);
     return $movies_by_genre->fetchAll();
+}
+
+
+function getMoviesByRealisateur($id_realisateur) {
+    global $dbh;
+
+    $movies_by_realisateur = $dbh->prepare('SELECT realisateurs.prenom, realisateurs.nom, films.titre FROM realisateurs, films, films_realisateurs WHERE realisateurs.id_realisateur = ? AND realisateurs.id_realisateur = films_realisateurs.id_realisateur AND films.id_film = films_realisateurs.id_film');
+    $movies_by_realisateur->execute([$id_realisateur]);
+
+
+    return $movies_by_realisateur->fetchAll();
+}
+
+
+function getMoviesByTitre($id_titre) {
+    global $dbh;
+
+    $movies_by_titre = $dbh->prepare('SELECT films.titre, films.url_img, films.annee_sortie, realisateurs.prenom, realisateurs.nom, genres.genre  FROM films, genres,genres_films, realisateurs, films_realisateurs WHERE films.id_film = ? AND films.id_film = films_realisateurs.id_film AND realisateurs.id_realisateur = films_realisateurs.id_realisateur AND films.id_film = genres_films.id_film AND genres_films.id_genre = genres.id_genre ');
+    $movies_by_titre->execute([$id_titre]);
+
+
+    return $movies_by_titre->fetchAll();
 }
 
 // function getTrucByTruc($) {
@@ -131,4 +153,13 @@ function getMoviesByGenre($id_genre) {
 
 //     $ = $dbh->prepare('SELECT');
 //     $->execute([$]);
+<<<<<<< HEAD
 //     return $->fetchAll();
+=======
+
+
+// Fin fonctions GetTrucByTruc
+
+//     return $->fetchAll();
+// }
+>>>>>>> 3cca71ea3440662104cbfffd3df90bf14affe769
