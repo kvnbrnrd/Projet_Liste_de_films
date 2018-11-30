@@ -153,13 +153,4 @@ function getMoviesByTitre($id_titre) {
 
 //     $ = $dbh->prepare('SELECT');
 //     $->execute([$]);
-<<<<<<< HEAD
 //     return $->fetchAll();
-=======
-
-
-// Fin fonctions GetTrucByTruc
-
-//     return $->fetchAll();
-// }
->>>>>>> 2bf848af90e18c6a3f982991f1eb2503e60301b3
