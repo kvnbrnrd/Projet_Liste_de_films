@@ -2,16 +2,24 @@ body {
     background: lightgrey;
 }
 
-.formcont{
-    border: 2px solid black;
-    padding: 1% 0;
-}
 
 .mb-4{
     min-width: 300px;
     max-width: 20%;
 }
 
+.card-deck{
+    position:absolute;
+}
+
+.container{
+    color:rgb(1, 110, 235);
+    text-align: center;
+}
+.container select{
+    max-width: 180px;
+}
 /* *{
     background-color: rgba(0,0,0,0.2)
 } */
+
