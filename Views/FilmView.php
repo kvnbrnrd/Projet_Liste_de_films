@@ -13,8 +13,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.15/css/mdb.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
+<body>
     <div class="container">
       <header class="blog-header py-3">
         <div class="row flex-nowrap justify-content-between align-items-center">
@@ -24,7 +24,6 @@
         </div>
       </header>
     </div>
-
         <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
             <div class="container">
                 <div class="col-md-6 px-0">
