@@ -23,6 +23,7 @@
                 echo $this_titre;
                 }?></h1></a>
           </div>
+          <?php print_r($this_movie);?>
         </div>
       </header>
     </div>
