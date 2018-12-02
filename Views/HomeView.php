@@ -195,6 +195,7 @@
                                             }?>
             </h4>
             <?php
+            if (isset($movie_from_genre)){
             foreach ($movie_from_genre as $key => $value) : ?>
                 <!-- Card -->
                 <div class="card mb-4">
@@ -229,8 +230,12 @@
                         </div>
                     <?php } ?>
                 </div>
-            <?php endforeach; 
-        } ?>
+                            <?php endforeach;
+            }
+                else{
+                echo "Nous n'avons pas de films dans cette catégorie.";
+            }
+        }?>
 
     <!-- AFFICHER RESULTATS PAR REALISATEURS-->
         <?php       
