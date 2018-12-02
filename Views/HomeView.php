@@ -8,6 +8,7 @@
     <title>Annuaire de films - <?=$page?></title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="//db.onlinewebfonts.com/c/b57096ab3227c7c548789b441d307ec5?family=Neutra+Text+Light" rel="stylesheet" type="text/css"/> 
     <!-- Bootstrap core CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
@@ -16,25 +17,64 @@
 </head>
 <body>
 
-    <h1><?=$page?></h1>
+<!-- <h1><?=$page?></h1> -->
+
+
+<!-- Dropdown ins-->
+<!-- <div class="dropdown"> -->
+
+  <!--Trigger-->
+  <!-- <button class="btn btn-mdb-color dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+    aria-haspopup="true" aria-expanded="false">CHOIX</button>
+ -->
+
+  <!--Menu-->
+<!--   <div class="dropdown-menu dropdown-mdb-color">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+</div> -->
+<!--/Dropdown ins--> -->
+
+<!-- FORMULAIRE PAR TITRE -->
+<div class="row">
+          <div class="col-lg-4">
+    <div class="container first">
+        <h1 id="titrecardbytitre">titre</h1>
+<!--Dropdown ins-->
+<form class="dropdown" id="formbytitre" action="" method="GET">
+
+<!--Menu-->
+  <select class=" btn btn-mdb-color dropdown-toggle" name="whichtitre" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <div class="dropdown-menu dropdown-mdb-color">
+        <?php foreach($all_movies as $key=>$value) : ?>
+            <option class="dropdown-item" value="<?=$key['films'].$value['id_film']?>"><?=$key['films'].$value['titre']?></option>
+        <?php endforeach; ?>
+    </div>
+  </select>
+  <button class="btn btn-mdb-color">GO</button>
+</form>
+</div>
+</div> <!-- /.col-lg-4 -->
+<!--/Dropdown ins-->
 
 
     <!-- FORMULAIRE PAR TITRE -->
-    <div class="row">
+<!--     <div class="row">
           <div class="col-lg-3">
     <div class="container first">
         <h1 id="titrecardbytitre">titre</h1>
         <form id="formbytitre" action="" method="GET">
             <select name="whichtitre" id="selecttitre">
-                <?php foreach($all_movies as $key=>$value) : ?>
-                   <option value="<?=$key['films'].$value['id_film']?>"><?=$key['films'].$value['titre']?></option>
-                <?php endforeach; ?>
+              
             </select>
-            <button class="btn blue-gradient">recherche</button>
+            <button class="btn btn-mdb-color">recherche</button>
 
         </form>
     </div>
-    </div><!-- /.col-lg-4 -->
+    </div> --><!-- /.col-lg-4 -->
           
     
 
@@ -49,7 +89,7 @@
                    <option value="<?=$key['acteurs'].$value['id_acteur']?>"><?=$key['acteurs'].$value['prenom']?> <?=$key['acteurs'].$value['nom']?></option>
                 <?php endforeach; ?>
             </select>
-            <button class="btn blue-gradient">recherche</button>
+            <button class="btn btn-mdb-color">recherche</button>
         </form>
     </div>
     </div><!-- /.col-lg-4 -->
@@ -65,7 +105,7 @@
                    <option value="<?=$key['genres'].$value['id_genre']?>"><?=$key['genres'].$value['genre']?></option>
                 <?php endforeach; ?>
             </select>
-            <button class="btn blue-gradient">recherche</button>
+            <button class="btn btn-mdb-color">recherche</button>
         </form>
     </div>
     </div><!-- /.col-lg-4 -->
@@ -81,7 +121,7 @@
                    <option value="<?=$key['realisateurs'].$value['id_realisateur']?>"><?=$key['realisateurs'].$value['prenom']?> <?=$key['realisateurs'].$value['nom']?></option>
                 <?php endforeach; ?>
             </select>
-            <button class="btn blue-gradient">recherche</button>
+            <button class="btn btn-mdb-color">recherche</button>
         </form>
     </div>
     </div>

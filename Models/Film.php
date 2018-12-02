@@ -136,7 +136,8 @@ function getMoviesByTitre($id_titre) {
     return $movies_by_titre->fetchAll();
 }
 
-//FONCTIONS GetTrucByIdFilm ; écrire       GET ACTORS FROM MOVIE     ET        GET GENRES FROM MOVIES
+//FONCTIONS GetTrucByIdFilm ; écrire       
+
 function getRealFromIdFilm($id_film){
     global $dbh;
 
@@ -145,3 +146,16 @@ function getRealFromIdFilm($id_film){
 
     return $real_by_film->fetchAll();
 }
+
+// GET ACTORS FROM MOVIE
+
+function getActorFromIdFilm($id_film){
+    global $dbh;
+
+    $actor_by_film = $dbh->prepare('SELECT acteurs.prenom, acteurs.nom, acteurs.date_de_naissance FROM films, acteurs, films_acteurs WHERE films.id_film = ? AND films.id_film = films_acteurs.id_film AND acteurs.id_acteur = films_acteurs.id_acteur');
+    $actor_by_film->execute([$id_film]);
+
+    return $actor_by_film->fetchAll();
+}
+
+// GET GENRES FROM MOVIES
