@@ -68,7 +68,9 @@
         <h1 id="titrecardbytitre">titre</h1>
         <form id="formbytitre" action="" method="GET">
             <select name="whichtitre" id="selecttitre">
-              
+                <?php foreach($all_movies as $key=>$value) : ?>
+                   <option value="<?=$value['id_film']?>"><?=$value['titre']?></option>
+                <?php endforeach; ?>
             </select>
             <button class="btn btn-mdb-color">recherche</button>
 
@@ -86,7 +88,7 @@
         <form id="formbyactor" action="" method="GET">
             <select name="whichactor" id="selectactor">
                 <?php foreach($all_actors as $key=>$value) : ?>
-                   <option value="<?=$key['acteurs'].$value['id_acteur']?>"><?=$key['acteurs'].$value['prenom']?> <?=$key['acteurs'].$value['nom']?></option>
+                   <option value="<?=$value['id_acteur']?>"><?=$value['prenom']?> <?=$value['nom']?></option>
                 <?php endforeach; ?>
             </select>
             <button class="btn btn-mdb-color">recherche</button>
@@ -102,7 +104,7 @@
         <form id="formbygenre" action="" method="GET">
             <select name="whichgenre" id="selectgenre">
                 <?php foreach($all_genres as $key=>$value) : ?>
-                   <option value="<?=$key['genres'].$value['id_genre']?>"><?=$key['genres'].$value['genre']?></option>
+                   <option value="<?=$value['id_genre']?>"><?=$value['genre']?></option>
                 <?php endforeach; ?>
             </select>
             <button class="btn btn-mdb-color">recherche</button>
@@ -118,16 +120,14 @@
         <form id="formbyrealisateur" action="" method="GET">
             <select name="whichrealisateur" id="selectrealisateur">
                 <?php foreach($all_realisateurs as $key=>$value) : ?>
-                   <option value="<?=$key['realisateurs'].$value['id_realisateur']?>"><?=$key['realisateurs'].$value['prenom']?> <?=$key['realisateurs'].$value['nom']?></option>
+                   <option value="<?=$value['id_realisateur']?>"><?=$value['prenom']?> <?=$value['nom']?></option>
                 <?php endforeach; ?>
             </select>
             <button class="btn btn-mdb-color">recherche</button>
         </form>
     </div>
     </div>
-</div>
-</div>
-</div><!-- /.col-lg-4 -->
+
 
    
 
@@ -138,37 +138,49 @@
     <div class="card-deck">
 
         <!-- AFFICHER RESULTATS PAR TITRE-->
-        <!-- isset : vérifie si $movie_name existe, et si oui, fait une boucle avec le code de la carte bootstrap -->
-        <?php if(isset($movie_name)){
-            foreach ($movie_name as $key => $value) : ?>
+        <?php       
+        if(isset($result_titre)){?>
+            <h4 class="resultattitre">
+                <?php foreach ($result_titre as $key => $value) {
+                    echo $value['titre'];
+                }?>
+            </h4>
+            <?php
+            foreach ($movie_from_titre as $key => $value) : ?>
                 <!-- Card -->
                 <div class="card mb-4">
-
                     <!--Image de la carte-->
                     <div class="view overlay">
-                        <img class="card-img-top poster_film" src="<?=$key['films'].$value['url_img']?>" alt="poster du film">
-                        <!-- ajouter l'url du film dans le href du a ; <a href="index.php?page=Film&id_film=php $key['films'].$value['id_film']?>"></a> -->
-                        <a href="index.php?page=Film&id_film=<?=$key['films'].$value['id_film']?>">
-                            <div class="mask rgba-white-slight"></div>
-                        </a>
-                    </div>
-
-                    <!--Contenu de la carte-->
-                    <div class="card-body">
-                        <!--Title-->
-                        <h4 class="card-title"><?=$key['films'].$value['titre']?></h4>
-                        <!--Text-->
-                        <div class="row">
-                            <p class="card-text col-6">Réalisateur : <?=$key['realisateurs'].$value['prenom']?> <?=$key['realisateurs'].$value['nom']?></p>
-                            <p class="card-text col-6">Année de sortie : <?=$key['films'].$value['annee_sortie']?></p>
+                    <?php foreach($value as $value){?>
+                            <img class="card-img-top poster_film" src="<?=$value['url_img']?>" alt="poster du film">
+                            <a href="index.php?page=Film&id_film=<?=$value['id_film']?>">
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
                         </div>
-                        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                        <a type="button" class="btn btn-light-blue btn-md" href="index.php?page=Film&id_film=<?=$key['films'].$value['id_film']?>">Voir la fiche</a>
-                    </div>
-
+                        <!--Contenu de la carte-->
+                        <div class="card-body">
+                            <!--Title-->
+                            <h4 class="card-title"><?=$value['titre']?></h4>
+                            <!--Text-->
+                            <div class="row">
+                                <p class="card-text col-6">Réalisateur(s) : <?php
+                                foreach ($real_from_film as $key => $real) {
+                                    foreach ($real as $myreal) {
+                                        echo $myreal['prenom'] . " " . $myreal['nom'] . "<br>";
+                                    }
+                                }?>
+                                </p>
+                                <p class="card-text col-6">
+                                    Année de sortie : <?=$value['annee_sortie'];?>
+                                </p>
+                            </div>
+                            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                            <a type="button" class="btn btn-light-blue btn-md" href="index.php?page=Film&id_film=<?=$value['id_film']?>">Voir la fiche</a>
+                        </div>
+                    <?php } ?>
                 </div>
             <?php endforeach; 
-        }?>
+        } ?>
                 
         <!-- AFFICHER RESULTATS PAR ACTEURS-->
         <?php       
@@ -197,96 +209,117 @@
                             <!--Text-->
                             <div class="row">
                                 <p class="card-text col-6">Réalisateur(s) : <?php
-                                foreach ($real_from_actor as $key => $real) {
+                                foreach ($real_from_film as $key => $real) {
                                     foreach ($real as $myreal) {
                                         echo $myreal['prenom'] . " " . $myreal['nom'] . "<br>";
                                     }
                                 }?>
                                 </p>
-                                <p class="card-text col-6">Année de sortie : <?php
-                                    echo $value['annee_sortie'];
-                                    ?>
+                                <p class="card-text col-6">
+                                    Année de sortie : <?=$value['annee_sortie'];?>
                                 </p>
                             </div>
                             <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                            <a type="button" class="btn btn-light-blue btn-md" href="index.php?page=Film&id_film=<?=$key['films'].$value['id_film']?>">Voir la fiche</a>
+                            <a type="button" class="btn btn-light-blue btn-md" href="index.php?page=Film&id_film=<?=$value['id_film']?>">Voir la fiche</a>
                         </div>
                     <?php } ?>
                 </div>
             <?php endforeach; 
         } ?>
 
-
-
-
-
-            <!-- AFFICHER RESULTATS PAR GENRE-->
-        <?php if(isset($genre_name) && !empty($genre_name)){
-            foreach ($genre_name as $key => $value) : ?>
+        <!-- AFFICHER RESULTATS PAR GENRES-->
+        <?php       
+        if(isset($result_genre)){
+            ?>
+            <h4 class="resultattitre">
+                Voici les films du genre <?php foreach ($result_genre as $key => $value) {
+                                                echo $value['genre'] . " :";
+                                            }?>
+            </h4>
+            <?php
+            foreach ($movie_from_genre as $key => $value) : ?>
                 <!-- Card -->
                 <div class="card mb-4">
-
                     <!--Image de la carte-->
                     <div class="view overlay">
-                        <img class="card-img-top poster_film" src="<?=$key['films'].$value['url_img']?>" alt="poster du film">
-                        <!-- ajouter l'url du film dans le href du a ; <a href="index.php?page=Film&id_film=php $key['films'].$value['id_film']?>"></a> -->
-                        <a href="index.php?page=Film&id_film=<?=$key['films'].$value['id_film']?>">
-                            <div class="mask rgba-white-slight"></div>
-                        </a>
-                    </div>
-
-                    <!--Contenu de la carte-->
-                    <div class="card-body">
-                        <!--Title-->
-                        <h4 class="card-title"><?=$key['films'].$value['titre']?></h4>
-                        <!--Text-->
-                        <div class="row">
-                            <p class="card-text col-6">Réalisateur : <?=$key['realisateurs'].$value['prenom']?> <?=$key['realisateurs'].$value['nom']?></p>
-                            <p class="card-text col-6">Année de sortie : <?=$key['films'].$value['annee_sortie']?></p>
-                        </div>
-                        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                        <a type="button" class="btn btn-light-blue btn-md" href="index.php?page=Film&id_film=<?=$key['films'].$value['id_film']?>">Voir la fiche</a>
-                    </div>
-
-                </div>
-            <?php endforeach; 
-        }   elseif(isset($genre_name)){
-                echo "Nous n'avons pas de films dans cette catégorie.";
-            }
-        ?>
-    
-
-        <!-- AFFICHER RESULTATS PAR REALISATEURS-->
-            <?php if(isset($realisateur_name)){
-                foreach ($realisateur_name as $key => $value) : ?>
-                    <!-- Card -->
-                    <div class="card mb-4">
-
-                        <!--Image de la carte-->
-                        <div class="view overlay">
-                            <img class="card-img-top poster_film" src="<?=$key['films'].$value['url_img']?>" alt="poster du film">
-                            <!-- ajouter l'url du film dans le href du a ; <a href="index.php?page=Film&id_film=php $key['films'].$value['id_film']?>"></a> -->
-                            <a href="index.php?page=Film&id_film=<?=$key['films'].$value['id_film']?>">
+                    <?php
+                    foreach($value as $value){?>
+                            <img class="card-img-top poster_film" src="<?=$value['url_img']?>" alt="poster du film">
+                            <a href="index.php?page=Film&id_film=<?=$value['id_film']?>">
                                 <div class="mask rgba-white-slight"></div>
                             </a>
                         </div>
-
                         <!--Contenu de la carte-->
                         <div class="card-body">
                             <!--Title-->
-                            <h4 class="card-title"><?=$key['films'].$value['titre']?></h4>
+                            <h4 class="card-title"><?=$value['titre']?></h4>
                             <!--Text-->
                             <div class="row">
-                                <p class="card-text col-6">Réalisateur : <?=$key['realisateurs'].$value['prenom']?> <?=$key['realisateurs'].$value['nom']?></p>
-                                <p class="card-text col-6">Année de sortie : <?=$key['films'].$value['annee_sortie']?></p>
+                                <p class="card-text col-6">Réalisateur(s) : <?php
+                                foreach ($real_from_film as $key => $real) {
+                                    foreach ($real as $myreal => $myvalue) {
+                                        echo $myvalue['prenom'] . " " . $myvalue['nom'] . "<br>";
+                                    }
+                                }?>
+                                </p>
+                                <p class="card-text col-6">
+                                    Année de sortie : <?=$value['annee_sortie'];?>
+                                </p>
                             </div>
                             <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                            <a type="button" class="btn btn-light-blue btn-md" href="index.php?page=Film&id_film=<?=$key['films'].$value['id_film']?>">Voir la fiche</a>
+                            <a type="button" class="btn btn-light-blue btn-md" href="index.php?page=Film&id_film=<?=$value['id_film']?>">Voir la fiche</a>
                         </div>
-                    </div>
-                <?php endforeach; 
-            } ?>
+                    <?php } ?>
+                </div>
+            <?php endforeach; 
+        } ?>
 
+    <!-- AFFICHER RESULTATS PAR REALISATEURS-->
+        <?php       
+        if(isset($result_real)){
+            ?>
+            <h4 class="resultattitre">
+                Voici les films réalisés par <?php foreach ($result_real as $key => $value) {
+                                                echo $value['prenom'] . " " . $value['nom'] . " :";
+                                            }?>
+            </h4>
+            <?php
+            foreach ($movie_from_realisateur as $key => $value) : ?>
+                <!-- Card -->
+                <div class="card mb-4">
+                    <!--Image de la carte-->
+                    <div class="view overlay">
+                    <?php
+                    foreach($value as $value){?>
+                            <img class="card-img-top poster_film" src="<?=$value['url_img']?>" alt="poster du film">
+                            <a href="index.php?page=Film&id_film=<?=$value['id_film']?>">
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                        </div>
+                        <!--Contenu de la carte-->
+                        <div class="card-body">
+                            <!--Title-->
+                            <h4 class="card-title"><?=$value['titre']?></h4>
+                            <!--Text-->
+                            <div class="row">
+                                <p class="card-text col-6">Réalisateur(s) : <?php
+                                foreach ($real_from_film as $key => $real) {
+                                    foreach ($real as $myreal => $myvalue) {
+                                        echo $myvalue['prenom'] . " " . $myvalue['nom'] . "<br>";
+                                    }
+                                }?>
+                                </p>
+                                <p class="card-text col-6">
+                                    Année de sortie : <?=$value['annee_sortie'];?>
+                                </p>
+                            </div>
+                            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                            <a type="button" class="btn btn-light-blue btn-md" href="index.php?page=Film&id_film=<?=$value['id_film']?>">Voir la fiche</a>
+                        </div>
+                    <?php } ?>
+                </div>
+            <?php endforeach; 
+        } ?>
 
 
     <!-- ferme le card deck -->
