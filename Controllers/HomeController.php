@@ -5,8 +5,17 @@ include('Models/Film.php');
 
 //Fonction résultats du fomulaire
 if (isset($_GET['whichactor'])){
-	$actor_name = getMoviesByActor($_GET['whichactor']);
+	//getOneActor pour afficher le nom de l'acteur recherché
+	$result_actor = getOneActor($_GET['whichactor']);
+	//getMoviesByActor pour get l'ID des films dans lesquels l'acteur a joué
+	$id_film_from_actor = getMoviesByActor($_GET['whichactor']);
+	foreach ($id_film_from_actor as $key => $value) {
+		//liste les infos pertinentes pour la carte
+		$movie_from_actor[] = getOneMovie($value['id_film']);
+		$real_from_actor[] = getRealFromIdFilm($value['id_film']);
+	}
 }
+
 
 if (isset($_GET['whichgenre'])){
 	$genre_name = getMoviesByGenre($_GET['whichgenre']);
