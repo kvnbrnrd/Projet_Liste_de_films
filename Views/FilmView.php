@@ -19,43 +19,46 @@
       <header class="blog-header py-3">
         <div class="row flex-nowrap justify-content-between align-items-center">
           <div class="col-4 text-center">
-            <a class="blog-header-logo text-dark" href="#"><h1><?php if(isset($this_titre)){
-                echo $this_titre;
-                }?></h1></a>
+            <a class="blog-header-logo text-dark" href="index.php?page=Film&id_film=<?=$this_movie['id_film']?>">
+                <h1>
+                    <?=$this_movie['titre']?>
+                </h1>
+            </a>
           </div>
-          <?php print_r($this_movie);?>
         </div>
       </header>
     </div>
         <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
             <div class="container">
-                <div class="col-md-6 px-0">
-                    <img src="<?php if (isset($this_image)){
-                        echo $this_image;
-                    }?>" alt="">
-
-                    <h3>Date de sortie :</h3><span><?php if(isset($this_date)){
-                        echo $this_date;
-                    }?></span>
-                    <h3>De :</h3><span><?php if(isset($this_real_nom)){
-                        echo $this_real_nom;
-                    }?></span>
-                    <h3>Avec :</h3><span><?php if(isset($this_actor)){
-                        echo $this_actor;
-                    }?></span>
-                    <h3>Genres : </h3><span><?php if(isset($this_genre)){
-                        echo $this_genre;
-                    }?></span>
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="<?=$this_movie['url_img']?>" alt="">
+                    </div>
+                    <div class="col-md-6">
+                        <h3>Date de sortie : <?=$this_movie['annee_sortie']?>
+                        </h3>
+                        <h3>De : <?php foreach ($this_realisateur as $key => $value) {
+                            echo $value['prenom']. " " . $value['nom'] . "<br>";
+                        }?>
+                        </h3>
+                        <h3>Avec : <?php foreach ($this_actor as $key => $value) {
+                            echo $value['prenom']. " " . $value['nom'] . "<br>";
+                        }?>
+                        </h3>
+                        <h3>Genres : <?php foreach ($this_genre as $key => $value) {
+                            echo $value['genre'] . "<br>";
+                        }?>
+                        </h3>
+                    </div>
                 </div>
             </div>
+            <div class="container">
+        <h2>SYNOPSIS</h2>
+            <p><?=$this_movie['description']?></p>
+      </div>
         </div>
 
-      <div class="container">
-        <h2>SYNOPSIS</h2>
-            <p><?php if(isset($this_description)){
-                        echo $this_description;
-                    }?></p>
-      </div>
+      
 
 
 <!-- JQuery -->

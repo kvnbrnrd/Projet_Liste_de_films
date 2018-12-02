@@ -5,19 +5,27 @@ include('Models/Film.php');
 
 
 //Récupérer les données (ici, on est sur la page d'un film précis donc on récupère un seul film en fonction de l'ID)
-
 if (isset($_GET['id_film'])){
-$this_movie = getOneMovie($_GET['id_film']);
+$this_movie = getOneMovieFetch($_GET['id_film']);
+$get_actors = getActorFromIdFilm($_GET['id_film']);
+foreach ($get_actors as $key => $value) {
+    $this_actor[] = $value; 
 }
-if (isset($_GET['id_actor'])){
-$this_actor = getOneActor($_GET['id_actor']);
+$get_reals = getRealFromIdFilm($_GET['id_film']);
+foreach ($get_reals as $key => $value) {
+    $this_realisateur[] = $value;
 }
-if (isset($_GET['id_realisateur'])){
-$this_realisateur = getOneRealisateur($_GET['id_realisateur']);
+$get_genres = getGenreFromIdFilm($_GET['id_film']);
+foreach ($get_genres as $key => $value) {
+    $this_genre[] = $value;
 }
+}
+
+
 if (isset($_GET['id_genre'])){
 $this_genre = getOneGenre($_GET['id_genre']);
 }
+
 
 if (isset($this_movie['titre'])){
 $this_titre = $this_movie['titre'];
