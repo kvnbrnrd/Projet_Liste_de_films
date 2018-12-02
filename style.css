@@ -1,5 +1,23 @@
+
+
 body {
     background: lightgrey;
+    font-family: "Neutra Text Light";
+
+}
+
+h1 {
+    text-transform: uppercase;
+    font-weight: 250;
+}
+
+.btn {
+   padding: .50rem 1.5rem;
+}
+
+.dropdown-item {
+    font-family: "Neutra Text Light";
+    font-weight: 150;
 }
 
 .mb-4{
