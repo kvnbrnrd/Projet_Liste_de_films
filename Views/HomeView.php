@@ -38,7 +38,7 @@
 </div> -->
 <!--/Dropdown ins--> 
 <header>
-<nav class="navbar navbar-inverse bg-inverse fixed-top text-center">
+<nav class="navbar navbar-expand-lg fixed-top text-center">
       <h1 class="col-lg-12">CANCOILLOTTE GAUMONT</h1>
 </nav>
 </header>
@@ -52,14 +52,14 @@
 <form class="dropdown" id="formbytitre" action="" method="GET">
 
 <!--Menu-->
-  <select class=" btn btn-mdb-color dropdown-toggle" name="whichtitre" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <select class=" btn btn-outline-mdb-color dropdown-toggle" name="whichtitre" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <div class="dropdown-menu dropdown-mdb-color">
         <?php foreach($all_movies as $key=>$value) : ?>
             <option class="dropdown-item" value="<?=$key['films'].$value['id_film']?>"><?=$key['films'].$value['titre']?></option>
         <?php endforeach; ?>
     </div>
   </select>
-  <button class="btn btn-mdb-color">GO</button>
+  <button class="btn btn-outline-mdb-color waves-effect">GO</button>
 </form>
 </div>
 </div> <!-- /.col-lg-4 -->
@@ -90,12 +90,12 @@
     <div class="container second">
         <h1 id="titrecardbyactor">acteur</h1>
         <form id="formbyactor" action="" method="GET">
-            <select name="whichactor" id="selectactor">
+            <select class="btn btn-outline-mdb-color dropdown-toggle" name="whichactor" id="selectactor">
                 <?php foreach($all_actors as $key=>$value) : ?>
                    <option value="<?=$value['id_acteur']?>"><?=$value['prenom']?> <?=$value['nom']?></option>
                 <?php endforeach; ?>
             </select>
-            <button class="btn btn-mdb-color">recherche</button>
+            <button class="btn btn-outline-mdb-color waves-effect">recherche</button>
         </form>
     </div>
     </div><!-- /.col-lg-4 -->
@@ -106,12 +106,12 @@
     <div class="container third">
         <h1 id="titrecardbygenre">genre</h1>
         <form id="formbygenre" action="" method="GET">
-            <select name="whichgenre" id="selectgenre">
+            <select class="btn btn-outline-mdb-color dropdown-toggle" name="whichgenre" id="selectgenre">
                 <?php foreach($all_genres as $key=>$value) : ?>
                    <option value="<?=$value['id_genre']?>"><?=$value['genre']?></option>
                 <?php endforeach; ?>
             </select>
-            <button class="btn btn-mdb-color">recherche</button>
+            <button class="btn btn-outline-mdb-color waves-effect">recherche</button>
         </form>
     </div>
     </div><!-- /.col-lg-4 -->
@@ -122,12 +122,12 @@
     <div class="container last">
         <h1 id="titrecardbyrealisateur">réalisateur</h1>
         <form id="formbyrealisateur" action="" method="GET">
-            <select name="whichrealisateur" id="selectrealisateur">
+            <select class="btn btn-outline-mdb-color dropdown-toggle" name="whichrealisateur" id="selectrealisateur">
                 <?php foreach($all_realisateurs as $key=>$value) : ?>
                    <option value="<?=$value['id_realisateur']?>"><?=$value['prenom']?> <?=$value['nom']?></option>
                 <?php endforeach; ?>
             </select>
-            <button class="btn btn-mdb-color">recherche</button>
+            <button class="btn btn-outline-mdb-color waves-effect">recherche</button>
         </form>
     </div>
     </div>
@@ -335,13 +335,10 @@
     </div>
 <!-- ferme le container -->
 </div>
+<div class="pres">Développé par :<br>
+        Lucas VAN DEN BERG, Morganne CULAS, Kevin BERNARD, Emilie QUINONERO
+        </div>
 
-    <footer class="d-flex justify-content-around fixed-bottom">
-            <img src="imagesprojet/logoACS.png" alt="">
-            <span>Développé par :<br>
-            Lucas VAN DEN BERG, Morganne CULAS, Kevin BERNARD, Emilie QUINONERO
-            </span>
-    </footer>
 
 <!-- JQuery -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

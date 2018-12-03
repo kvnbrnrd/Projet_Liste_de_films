@@ -67,12 +67,9 @@
         </div>
         </div>
 
-    <footer class="d-flex justify-content-around fixed-bottom">
-            <img src="imagesprojet/logoACS.png" alt="">
-            <span>Développé par :<br>
+            <div class="footer">Développé par :<br>
             Lucas VAN DEN BERG, Morganne CULAS, Kevin BERNARD, Emilie QUINONERO
-            </span>
-    </footer>
+                    </div>
 <!-- JQuery -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- Bootstrap tooltips -->

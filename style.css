@@ -74,15 +74,21 @@ h1 {
 {
     background-color : rgb(150, 150, 150);
 }
-footer
-{
-    background-color: rgb(150, 150, 150);
-}
+
 .card-deck
 {
     padding-bottom: 100px;
 }
-
+.acs
+{
+    height : 55px;
+    width : 201px;
+}
+.pres
+{
+    position: static;
+    bottom : 0;
+}
 
 @media (min-width: 768px){
     .syno{
@@ -94,6 +100,11 @@ footer
     }
     .img_film img{
     margin-right:40px;
+}
+.pres
+{
+    position: absolute;
+    bottom : 0;
 }
 }
 
