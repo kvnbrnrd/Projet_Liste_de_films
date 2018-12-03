@@ -36,11 +36,11 @@
     <a class="dropdown-item" href="#">Something else here</a>
   </div>
 </div> -->
-<!--/Dropdown ins--> -->
+<!--/Dropdown ins--> 
 
 <!-- FORMULAIRE PAR TITRE -->
 <div class="row">
-          <div class="col-lg-4">
+          <div class="col-lg-3">
     <div class="container first">
         <h1 id="titrecardbytitre">titre</h1>
 <!--Dropdown ins-->
