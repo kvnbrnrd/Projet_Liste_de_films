@@ -15,6 +15,13 @@
 </head>
 
 <body>
+
+<header>
+<nav class="navbar navbar-inverse bg-inverse fixed-top text-center">
+      <h1 class="col-lg-12">CANCOILLOTTE GAUMONT</h1>
+</nav>
+</header>
+
     <div class="container">
       <header class="blog-header py-3">
         <div class="row flex-nowrap justify-content-between align-items-center">
@@ -60,7 +67,12 @@
         </div>
         </div>
 
-
+    <footer class="d-flex justify-content-around fixed-bottom">
+            <img src="imagesprojet/logoACS.png" alt="">
+            <span>Développé par :<br>
+            Lucas VAN DEN BERG, Morganne CULAS, Kevin BERNARD, Emilie QUINONERO
+            </span>
+    </footer>
 <!-- JQuery -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- Bootstrap tooltips -->
