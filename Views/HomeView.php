@@ -36,7 +36,7 @@
     <a class="dropdown-item" href="#">Something else here</a>
   </div>
 </div> -->
-<!--/Dropdown ins--> -->
+<!--/Dropdown ins--> 
 
 <!-- FORMULAIRE PAR TITRE -->
 <div class="row">
