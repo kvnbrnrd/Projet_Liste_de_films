@@ -24,6 +24,9 @@ h1 {
     min-width: 300px;
     max-width: 20%;
 }
+.container h1{
+    font-family: 'Prata', serif;
+}
 
 .card-deck{
     position: absolute;
@@ -44,10 +47,12 @@ h1 {
 .infos_film h3{
     font-size:20px;
     margin-left:25px;
+    font-family: 'Prata', serif;
 }
 .syno{
     text-align: center;
     font-size: 20px;
+    font-family: 'Prata', serif;
 }
 
 .container select{
@@ -72,9 +77,11 @@ h1 {
     .syno{
     text-align: center;
     font-size: 24px;
+    font-family: 'Prata', serif;
     }
     .infos_film h3{
     font-size:24px;
+    font-family: 'Prata', serif;
     }
     .img_film img{
     margin-right:40px;
