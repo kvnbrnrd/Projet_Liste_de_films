@@ -15,10 +15,17 @@
 </head>
 
 <body>
+
+<header>
+<nav class="navbar navbar-inverse bg-inverse fixed-top text-center">
+      <h1 class="col-lg-12">CANCOILLOTTE GAUMONT</h1>
+</nav>
+</header>
+
     <div class="container">
       <header class="blog-header py-3">
         <div class="row flex-nowrap justify-content-between align-items-center">
-          <div class="col-4 text-center">
+          <div class="col-12 text-center">
             <a class="blog-header-logo text-dark" href="index.php?page=Film&id_film=<?=$this_movie['id_film']?>">
                 <h1>
                     <?=$this_movie['titre']?>
@@ -29,12 +36,13 @@
       </header>
     </div>
         <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
-            <div class="container">
+        <div class="fiche">
+            
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4 img_film">
                         <img src="<?=$this_movie['url_img']?>" alt="">
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4 infos_film">
                         <h3>Date de sortie : <?=$this_movie['annee_sortie']?>
                         </h3>
                         <h3>De : <?php foreach ($this_realisateur as $key => $value) {
@@ -52,13 +60,19 @@
                     </div>
                 </div>
             </div>
-            <div class="container">
+            <div class="syno">
         <h2>SYNOPSIS</h2>
             <p><?=$this_movie['description']?></p>
       </div>
         </div>
+        </div>
 
-
+    <footer class="d-flex justify-content-around fixed-bottom">
+            <img src="imagesprojet/logoACS.png" alt="">
+            <span>Développé par :<br>
+            Lucas VAN DEN BERG, Morganne CULAS, Kevin BERNARD, Emilie QUINONERO
+            </span>
+    </footer>
 <!-- JQuery -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- Bootstrap tooltips -->
