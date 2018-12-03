@@ -24,6 +24,9 @@ h1 {
     min-width: 300px;
     max-width: 20%;
 }
+.container h1{
+    font-family: 'Prata', serif;
+}
 
 .card-deck{
     position: absolute;
@@ -44,10 +47,12 @@ h1 {
 .infos_film h3{
     font-size:20px;
     margin-left:25px;
+    font-family: 'Prata', serif;
 }
 .syno{
     text-align: center;
-    font-size: 20px;
+    font-size: 16px;
+    font-family: 'Prata', serif;
 }
 
 .container select{
@@ -89,14 +94,40 @@ h1 {
     position: static;
     bottom : 0;
 }
+.logo{
+    width:auto;
+    height:95px;
+}
+
+.titre_films{
+    max-width:100% !important;
+    margin-top:110px;
+    background: #212121;
+}
+.ligne{
+    width: 50%;
+    margin: auto;
+    height: 1px;
+    background: white;
+}
+.titre_de_film h1{
+    font-family: 'Abel', sans-serif;
+    font-size:60px;
+}
+
+#titre_resultat{
+    padding-top:120px;
+}
 
 @media (min-width: 768px){
     .syno{
     text-align: center;
     font-size: 24px;
+    font-family: 'Abel', sans-serif;
     }
     .infos_film h3{
     font-size:24px;
+    font-family: 'Abel', sans-serif;
     }
     .img_film img{
     margin-right:40px;

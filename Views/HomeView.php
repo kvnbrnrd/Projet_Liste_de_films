@@ -13,6 +13,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.15/css/mdb.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Abel|Prata" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -38,8 +39,8 @@
 </div> -->
 <!--/Dropdown ins--> 
 <header>
-<nav class="navbar navbar-expand-lg fixed-top text-center">
-      <h1 class="col-lg-12">CANCOILLOTTE GAUMONT</h1>
+<nav class="navbar navbar-inverse bg-inverse fixed-top justify-content-center">
+<a href="Home"><img class ="logo" src="imagesprojet/logo_cancoillotte_gaumont.png" alt=""></a>
 </nav>
 </header>
 
@@ -144,7 +145,7 @@
         <!-- AFFICHER RESULTATS PAR TITRE-->
         <?php       
         if(isset($result_titre)){?>
-            <h4 class="resultattitre">
+            <h4 id="titre_resultat" class="resultattitre">
                 <?php foreach ($result_titre as $key => $value) {
                     echo $value['titre'];
                 }?>
@@ -189,7 +190,7 @@
         <!-- AFFICHER RESULTATS PAR ACTEURS-->
         <?php       
         if(isset($result_actor)){?>
-            <h4 class="resultattitre">
+            <h4 id="titre_resultat" class="resultattitre">
                 Voici les films avec <?php foreach ($result_actor as $key => $value) {
                                                 echo $value['prenom'] . " " . $value['nom'] . " :";
                                             }?>
@@ -235,7 +236,7 @@
         <?php       
         if(isset($result_genre)){
             ?>
-            <h4 class="resultattitre">
+            <h4 id="titre_resultat" class="resultattitre">
                 Voici les films du genre <?php foreach ($result_genre as $key => $value) {
                                                 echo $value['genre'] . " :";
                                             }?>
@@ -287,7 +288,7 @@
         <?php       
         if(isset($result_real)){
             ?>
-            <h4 class="resultattitre">
+            <h4 id="titre_resultat" class="resultattitre">
                 Voici les films réalisés par <?php foreach ($result_real as $key => $value) {
                                                 echo $value['prenom'] . " " . $value['nom'] . " :";
                                             }?>
