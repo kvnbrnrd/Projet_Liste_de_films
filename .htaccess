@@ -3,7 +3,7 @@
 #toutes les requêtes passent donc par le routeur : index.php qui se charge d'appeler le bon controlleur.
 
 RewriteEngine on
-RewriteBase /projet_merise/
+RewriteBase /Projet_Merise/
 RewriteCond  %{REQUEST_FILENAME} !-f
 RewriteCond  %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php?page=$1 [NC,L,QSA]
