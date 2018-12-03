@@ -37,6 +37,11 @@
   </div>
 </div> -->
 <!--/Dropdown ins--> 
+<header>
+<nav class="navbar navbar-inverse bg-inverse fixed-top text-center">
+      <h1 class="col-lg-12">CANCOILLOTTE GAUMONT</h1>
+</nav>
+</header>
 
 <!-- FORMULAIRE PAR TITRE -->
 <div class="row">
@@ -73,7 +78,6 @@
                 <?php endforeach; ?>
             </select>
             <button class="btn btn-mdb-color">recherche</button>
-
         </form>
     </div>
     </div> --><!-- /.col-lg-4 -->
@@ -332,9 +336,12 @@
 <!-- ferme le container -->
 </div>
 
-
-
-
+    <footer class="d-flex justify-content-around fixed-bottom">
+            <img src="imagesprojet/logoACS.png" alt="">
+            <span>Développé par :<br>
+            Lucas VAN DEN BERG, Morganne CULAS, Kevin BERNARD, Emilie QUINONERO
+            </span>
+    </footer>
 
 <!-- JQuery -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
