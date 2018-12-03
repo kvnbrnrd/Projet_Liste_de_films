@@ -59,7 +59,7 @@
         <?php endforeach; ?>
     </div>
   </select>
-  <button class="btn btn-mdb-color">GO</button>
+  <button class="btn btn-mdb-color btn-rounded">GO</button>
 </form>
 </div>
 </div> <!-- /.col-lg-4 -->
