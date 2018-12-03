@@ -354,12 +354,6 @@
 
     <!-- ferme le card deck -->
     </div>
-<!-- ferme le container -->
-</div>
-<div class="pres">Développé par :<br>
-        Lucas VAN DEN BERG, Morganne CULAS, Kevin BERNARD, Emilie QUINONERO
-        </div>
-
 
 <!-- JQuery -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
