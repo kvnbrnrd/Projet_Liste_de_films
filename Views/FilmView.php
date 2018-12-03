@@ -11,31 +11,36 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.15/css/mdb.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Abel|Prata" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
-<nav class="navbar navbar-inverse bg-inverse fixed-top text-center">
-      <h1 class="col-lg-12">CANCOILLOTTE GAUMONT</h1>
+<nav class="navbar navbar-inverse bg-inverse fixed-top justify-content-center">
+<a href="Home"><img class ="logo" src="imagesprojet/logo_cancoillotte_gaumont.png" alt=""></a>
 </nav>
 </header>
 
-    <div class="container">
+    <div class="container titre_films">
       <header class="blog-header py-3">
         <div class="row flex-nowrap justify-content-between align-items-center">
           <div class="col-12 text-center">
-            <a class="blog-header-logo text-dark" href="index.php?page=Film&id_film=<?=$this_movie['id_film']?>">
-                <h1>
+             
+            <a class="blog-header-logo text-white" href="index.php?page=Film&id_film=<?=$this_movie['id_film']?>">
+             <div class="titre_de_film">
+            <h1>
                     <?=$this_movie['titre']?>
                 </h1>
             </a>
+            <div class="ligne"></div>
           </div>
+        </div>
         </div>
       </header>
     </div>
-        <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+        <div class="jumbotron p-3 p-md-5 text-white bg-dark">
         <div class="fiche">
             
                 <div class="row">
