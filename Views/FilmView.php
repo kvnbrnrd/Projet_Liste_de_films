@@ -62,6 +62,12 @@
                             echo $value['genre'] . "<br>";
                         }?>
                         </h3>
+                        <h3>Note :</h3>
+                        <div id ="reponse">
+                        <button id="ajaxBtn">Afficher la note</button>
+                        <p style="display:none;" id="loading">Chargement...</p>
+                    </div>
+                    <span id ="note"></span>
                     </div>
                 </div>
             </div>
@@ -72,7 +78,39 @@
         </div>
         </div>
 
- 
+<script>
+
+
+var ajaxBtn = document.getElementById('ajaxBtn');
+var divReponse = document.getElementById('reponse');
+var spanNote = document.getElementById('note');
+var loading = document.getElementById('loading');
+
+ajaxBtn.addEventListener('click',function() {
+
+    loading.style.display = 'block';
+
+    <?php $id = "tt0060827"; ?>
+
+    var id="<?php echo $id; ?>";
+
+    var url = "http://www.omdbapi.com/?apikey=164338d3&i="+id;
+
+
+    fetch(url)
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(myObject) {
+        loading.style.display = 'none';
+        divReponse.innerHTML = myObject.imdbRating;
+        spanNote.innerHTML = "/10";
+    });
+
+})
+
+
+</script>
  
 <!-- JQuery -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

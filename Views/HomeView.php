@@ -28,24 +28,24 @@
 
 <!-- FORMULAIRE PAR TITRE -->
 <div class="row myforms">
-          <div class="col-lg-3">
-    <div class="container first">
-        <h2 id="titrecardbytitre">titre</h2>
+    <div class="col-lg-3">
+        <div class="container first">
+            <h2 id="titrecardbytitre">titre</h2>
 <!--Dropdown ins-->
-<form class="dropdown" id="formbytitre" action="#titre_resultat" method="GET">
+        <form class="dropdown" id="formbytitre" action="#titre_resultat" method="GET">
 
 <!--Menu-->
-  <select class=" btn btn-outline-mdb-color dropdown-toggle" name="whichtitre" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <div class="dropdown-menu dropdown-mdb-color">
-        <?php foreach($all_movies as $key=>$value) : ?>
-            <option class="dropdown-item" value="<?=$key['films'].$value['id_film']?>"><?=$key['films'].$value['titre']?></option>
-        <?php endforeach; ?>
+            <select class=" btn btn-outline-mdb-color dropdown-toggle" name="whichtitre" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="dropdown-menu dropdown-mdb-color">
+                    <?php foreach($all_movies as $key=>$value) : ?>
+                        <option class="dropdown-item" value="<?=$key['films'].$value['id_film']?>"><?=$key['films'].$value['titre']?></option>
+                    <?php endforeach; ?>
+                </div>
+            </select>
+            <button class="btn btn-outline-mdb-color waves-effect">GO</button>
+        </form>
+        </div>
     </div>
-  </select>
-  <button class="btn btn-outline-mdb-color waves-effect">GO</button>
-</form>
-</div>
-</div>
 
     <!-- FORMULAIRE PAR ACTEUR -->
     <div class="col-lg-3">

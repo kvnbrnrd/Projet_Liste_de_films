@@ -3,8 +3,14 @@
 //Le modèle contient toutes les fonctions d'appel à la base de données.
 include('info.php');
 
-
-$dbh = new PDO('mysql:host='. $host .';dbname='. $dbname, $user, $pass); 
+try
+{
+	$dbh = new PDO('mysql:host='. $host .';dbname='. $dbname, $user, $pass); 
+}
+catch (Exception $e)
+{
+        die('Erreur : ' . $e->getMessage());
+}
 
 //Ecrire la fonction getAllActors, getAllGenres, getAllRealisateurs
 
